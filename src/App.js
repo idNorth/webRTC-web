@@ -1,6 +1,12 @@
 import React from "react";
-import Layout from './src/containers/Layout';
+import Layout from './containers/Layout';
+import { GlobalStyle } from './styles';
 
-const App = () => <Layout />;
+const App = () => (
+    <>
+        <GlobalStyle />
+        <Layout />
+    </>
+)
 
 export default App;
