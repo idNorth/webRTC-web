@@ -1,5 +1,7 @@
-import RenderButton from './RenderButton';
+import SimpleTextButton from './SimpleTextButton';
+import RenderInput from './RenderInput';
 
 export {
-    RenderButton,
+  SimpleTextButton,
+  RenderInput,
 };

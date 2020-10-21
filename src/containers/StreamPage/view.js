@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
-import {RenderButton} from '../../components';
+import {SimpleTextButton} from '../../components';
 
 class StreamPageView extends Component {
     render() {
         return (
             <div>
-                <RenderButton
+                <SimpleTextButton
                     onClick={this.props.setIsConnected}
                     label="Disconnect"
                 />

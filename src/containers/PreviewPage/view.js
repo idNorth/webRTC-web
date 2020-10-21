@@ -1,27 +1,57 @@
 import React, { Component } from 'react';
 
-import { RenderButton } from '../../components';
-import { Wrapper } from './styles';
+import RoomList from './parts/RoomList';
+import { RenderInput, SimpleTextButton } from '../../components';
+import {
+  Wrapper,
+  LeftSide,
+  JoinInput,
+  Image
+} from './styles';
 
 class PreviewPageView extends Component {
-    render() {
-        return (
-            <Wrapper>
-                <RenderButton
-                    onClick={this.props.setIsConnected}
-                    label="Create room"
-                />
-                <RenderButton
-                    onClick={this.props.setIsConnected}
-                    label="Join room"
-                />
-            </Wrapper>
-        );
-    }
-}
+  render() {
+    const {
+      isOpenRoomList,
+      setIsOpenRoomList,
+    } = this.props;
 
-PreviewPageView.defaultProps = {
-    setIsConnected: () => {},
+    return (
+      <Wrapper>
+        <SimpleTextButton
+          label="Create"
+          customStylesButton={{
+            position: 'fixed',
+            top: 20,
+            left: 20,
+          }}
+        />
+        <LeftSide>
+          <JoinInput>
+            <RenderInput
+              placeholder="URL"
+              customStylesInput={{
+                width: 400,
+                // height: 35,
+              }}
+            />
+            <SimpleTextButton
+              label="Join"
+              customStylesButton={{
+                width: 50,
+                height: 10,
+                marginLeft: 10,
+              }}
+            />
+          </JoinInput>
+        </LeftSide>
+        <RoomList
+          isOpenRoomList={isOpenRoomList}
+          setIsOpenRoomList={setIsOpenRoomList}
+        />
+      </Wrapper>
+    );
+  }
 }
 
 export default PreviewPageView;
