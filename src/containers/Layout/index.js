@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import StreamPage from '../StreamPage';
 import PreviewPage from '../PreviewPage';
+import { Background } from '../../components';
 import { initSocket, createRoomSocket, joinTheRoomSocket } from '../../socket';
-import {Image} from "../PreviewPage/styles";
 
 class Layout extends Component {
   constructor(props) {
@@ -55,7 +55,7 @@ class Layout extends Component {
   render() {
     return (
       <>
-        <Image src={require('../../assets/img/nature.jpg')}/>
+        <Background />
         {this.renderPage()}
       </>
     )
