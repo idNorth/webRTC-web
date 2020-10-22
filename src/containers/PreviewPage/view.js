@@ -6,20 +6,22 @@ import {
   Wrapper,
   LeftSide,
   JoinInput,
-  Image
 } from './styles';
 
 class PreviewPageView extends Component {
   render() {
     const {
-      isOpenRoomList,
-      setIsOpenRoomList,
+      isOpenSideBar,
+      handleSideBar,
+      handleCreateRoom,
+      handleJoinRoom,
     } = this.props;
 
     return (
       <Wrapper>
         <SimpleTextButton
           label="Create"
+          onClick={handleCreateRoom}
           customStylesButton={{
             position: 'fixed',
             top: 20,
@@ -37,6 +39,7 @@ class PreviewPageView extends Component {
             />
             <SimpleTextButton
               label="Join"
+              onClick={handleJoinRoom}
               customStylesButton={{
                 width: 50,
                 height: 10,
@@ -45,13 +48,19 @@ class PreviewPageView extends Component {
             />
           </JoinInput>
         </LeftSide>
-        <RoomList
-          isOpenRoomList={isOpenRoomList}
-          setIsOpenRoomList={setIsOpenRoomList}
-        />
+        {/*<RoomList*/}
+        {/*  isOpenSideBar={isOpenSideBar}*/}
+        {/*  handleSideBar={handleSideBar}*/}
+        {/*/>*/}
       </Wrapper>
     );
   }
 }
+
+PreviewPageView.defaultProps = {
+  createRoom: () => {},
+  joinRoom: () => {}
+}
+
 
 export default PreviewPageView;

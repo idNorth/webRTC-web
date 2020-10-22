@@ -6,13 +6,6 @@ export const Wrapper = styled.div`
   width: inherit;
 `;
 
-export const Image = styled.img`
-  position: absolute;
-  z-index: -1;
-  height: inherit;
-  width: inherit;
-`;
-
 export const LeftSide = styled.div`
   display: flex;
   align-items: center;
@@ -26,4 +19,5 @@ export const JoinInput = styled.div`
   align-items: center;
   justify-content: space-between;
   padding-bottom: 100px;
+  z-index: 1;
 `;

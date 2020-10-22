@@ -1,15 +1,12 @@
 import io from 'socket.io-client';
 
-export const initSocket = () => io.connect("/");
+export const initSocket = () => io('http://localhost:4001/');
 
-export const createRoomSocket = (label, password) => {
-  this.socket.emit('createRoom', { label, password })
-};
+export function createRoomSocket() {
+  this.socket.emit('createRoom')
+}
 
-export const joinTheRoomSocket = (label, password) => {
-  this.socket.emit('joinTheRoom', { label, password })
-};
-
-export const getRoomsSocket = (keyword) => {
-  this.socket.emit('getRooms', { keyword })
-};
+export function joinRoomSocket(roomId) {
+  console.log(this.socket);
+  this.socket.emit('joinRoom', { roomId: 'testtest' })
+}

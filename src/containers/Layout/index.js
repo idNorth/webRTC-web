@@ -2,52 +2,50 @@ import React, { Component } from 'react';
 import StreamPage from '../StreamPage';
 import PreviewPage from '../PreviewPage';
 import { Background } from '../../components';
-import { initSocket, createRoomSocket, joinTheRoomSocket } from '../../socket';
+import { initSocket, createRoomSocket, joinRoomSocket } from '../../socket';
 
 class Layout extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      label: '',
-      password: null,
       isConnected: false,
     };
 
     this.socket = initSocket();
     this.createRoomSocket = createRoomSocket.bind(this);
-    this.joinTheRoomSocket = joinTheRoomSocket.bind(this)
+    this.joinRoomSocket = joinRoomSocket.bind(this);
   }
 
-  createRoom = () => {
-    const { label, password } = this.state;
-    if (!label) return;
-    this.createRoomSocket(label, password);
+  handleCreateRoom = () => {
+    this.createRoomSocket();
     this.setState({ isConnected: true });
   };
 
-  joinTheRoom = () => {
-    const { label, password } = this.state;
-    if (!label) return;
-    this.joinTheRoomSocket(label, password);
+  handleJoinRoom = () => {
+    this.joinRoomSocket();
     this.setState({ isConnected: true });
   };
 
-  updateState = (data) => this.setState(data);
+  handleDisconnect = () => {
+    this.socket.close();
+    this.setState({ isConnected: false });
+  }
 
   renderPage = () => {
     const { isConnected } = this.state;
     if (isConnected) {
       return (
         <StreamPage
-          setIsConnected={() => this.updateState({ isConnected: false })}
+          handleDisconnect={this.handleDisconnect}
         />
       )
     }
 
     return (
       <PreviewPage
-        updateState={this.updateState}
+        handleJoinRoom={this.handleJoinRoom}
+        handleCreateRoom={this.handleCreateRoom}
       />
     )
   };

@@ -3,20 +3,25 @@ import React, { Component } from 'react';
 import {SimpleTextButton} from '../../components';
 
 class StreamPageView extends Component {
-    render() {
-        return (
-            <div>
-                <SimpleTextButton
-                    onClick={this.props.setIsConnected}
-                    label="Disconnect"
-                />
-            </div>
-        );
-    }
+  render() {
+    const { handleDisconnect, videoStreamRef } = this.props;
+    return (
+      <div>
+        <SimpleTextButton
+          onClick={handleDisconnect}
+          label="Disconnect"
+        />
+        <video
+          ref={videoStreamRef}
+          autoPlay
+        />
+      </div>
+    );
+  }
 }
 
 StreamPageView.defaultProps = {
-    setIsConnected: () => {},
+  handleDisconnect: () => {},
 }
 
 export default StreamPageView;

@@ -4,6 +4,7 @@ export const Wrapper = styled.div`
   position: absolute;
   height: inherit;
   width: inherit;
+  z-index: -10;
 `;
 
 export const Block = styled.div`
