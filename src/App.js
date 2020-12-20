@@ -3,7 +3,8 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from 'react-redux'
 import { createBrowserHistory } from 'history';
 
-import Navigation from './navigation';
+import Routers from './routers';
+import LocaleProvider from './services/localization';
 import { GlobalStyle } from './styles';
 import { store } from './redux';
 
@@ -13,7 +14,9 @@ const App = () => (
   <Provider store={store}>
     <Router history={history}>
       <GlobalStyle />
-      <Navigation />
+      <LocaleProvider>
+        <Routers />
+      </LocaleProvider>
     </Router>
   </Provider>
 )

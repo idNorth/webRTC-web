@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { injectIntl } from 'react-intl';
 
 import {
   Wrapper,
@@ -9,18 +10,34 @@ import {
 
 class SimpleInput extends Component {
   renderError = () => {
-    const { meta: { touched, error, warning }, customStyles } = this.props;
+    const {
+      intl: { formatMessage },
+      meta: { touched, error, warning },
+      customStyles,
+    } = this.props;
+
     if (!touched) return null
-    if (error) return <Error customStyles={customStyles.error}>{ error }</Error>
-    if (warning) return <Warning customStyles={customStyles.warning}>{ warning }</Warning>
+    if (error) return <Error customStyles={customStyles.error}>{ formatMessage({ id: error }) }</Error>
+    if (warning) return <Warning customStyles={customStyles.warning}>{ formatMessage({ id: warning }) }</Warning>
   }
 
   render() {
-    const { input, customStyles, ...res } = this.props;
+    const {
+      input,
+      customStyles,
+      intl: { formatMessage },
+      placeholderId,
+      ...res
+    } = this.props;
 
     return (
       <Wrapper customStyles={customStyles.wrapper}>
-        <Input customStyles={customStyles.input} {...input} {...res}/>
+        <Input
+          customStyles={customStyles.input}
+          placeholder={formatMessage({ id: placeholderId })}
+          {...input}
+          {...res}
+        />
         { this.renderError() }
       </Wrapper>
     )
@@ -36,4 +53,4 @@ SimpleInput.defaultProps = {
   }
 };
 
-export default SimpleInput;
+export default injectIntl(SimpleInput);

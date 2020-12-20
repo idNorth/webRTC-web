@@ -17,10 +17,11 @@ class LoginView extends Component {
           <Field
             name="username"
             component={SimpleInput}
+            placeholderId="name"
           />
           <StyledButton
             type="submit"
-            text="Click"
+            id="login"
           />
         </Form>
       </Wrapper>

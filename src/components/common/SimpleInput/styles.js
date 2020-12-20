@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   ${(props) => props.customStyles}
 `;
 
@@ -16,6 +19,9 @@ export const Input = styled.input`
 `;
 
 export const Error = styled.div`
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
   ${(props) => props.customStyles}
 `
 

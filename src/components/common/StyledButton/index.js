@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { injectIntl } from 'react-intl';
 
 import { Button } from './styles';
 
@@ -6,14 +7,16 @@ class StyledButton extends Component {
   render() {
     const {
       text,
+      intl: { formatMessage },
+      id,
       ...res
     } = this.props;
     return (
       <Button {...res}>
-        { text }
+        { formatMessage({ id }) }
       </Button>
     )
   }
 }
 
-export default StyledButton;
+export default injectIntl(StyledButton);
