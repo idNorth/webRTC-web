@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 
-import { SimpleInput, StyledButton } from '../common';
+import { SimpleInput, StyledButton, LocalizationSelector } from '../common';
 import validate from './validation';
 import {
   Wrapper,
@@ -13,6 +13,7 @@ class LoginView extends Component {
     const { handleSubmit } = this.props;
     return (
       <Wrapper>
+        <LocalizationSelector />
         <Form onSubmit={handleSubmit}>
           <Field
             name="username"

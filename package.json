@@ -11,6 +11,8 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.2",
+    "@material-ui/icons": "^4.11.2",
     "history": "^5.0.0",
     "lodash": "^4.17.20",
     "react": "^16.10.2",
