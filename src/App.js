@@ -1,12 +1,21 @@
 import React from "react";
-import Layout from './containers/Layout';
+import { BrowserRouter as Router } from "react-router-dom";
+import { Provider } from 'react-redux'
+import { createBrowserHistory } from 'history';
+
+import Navigation from './navigation';
 import { GlobalStyle } from './styles';
+import { store } from './redux';
+
+const history = createBrowserHistory();
 
 const App = () => (
-    <>
-        <GlobalStyle />
-        <Layout />
-    </>
+  <Provider store={store}>
+    <Router history={history}>
+      <GlobalStyle />
+      <Navigation />
+    </Router>
+  </Provider>
 )
 
 export default App;
