@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 
-class SimpleInput extends Component {
+import { Button } from './styles';
+
+class StyledButton extends Component {
   render() {
-    const { input, ...res } = this.props;
+    const {
+      text,
+      ...res
+    } = this.props;
     return (
-      <input {...input} {...res}/>
+      <Button {...res}>
+        { text }
+      </Button>
     )
   }
 }
 
-export default SimpleInput;
+export default StyledButton;

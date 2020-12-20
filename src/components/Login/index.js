@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 
-import { SimpleInput } from '../common';
+import { SimpleInput, StyledButton } from '../common';
+import validate from './validation';
 import {
   Wrapper,
   Form
@@ -14,12 +15,13 @@ class LoginView extends Component {
       <Wrapper>
         <Form onSubmit={handleSubmit}>
           <Field
-            name="userName"
+            name="username"
             component={SimpleInput}
           />
-          <button type="submit">
-            Click
-          </button>
+          <StyledButton
+            type="submit"
+            text="Click"
+          />
         </Form>
       </Wrapper>
     )
@@ -28,6 +30,7 @@ class LoginView extends Component {
 
 LoginView = reduxForm({
   form: 'loginForm',
+  validate,
 })(LoginView);
 
 export default LoginView;

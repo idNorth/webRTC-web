@@ -13,4 +13,6 @@ export const Form = styled.form`
   flex-direction: column;
   height: 100px;
   justify-content: space-between;
+  align-items: center;
+  padding-bottom: 50px;
 `
