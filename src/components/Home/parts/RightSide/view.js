@@ -1,22 +1,26 @@
 import React, { memo } from 'react';
 
 import { RoundButton } from '../../../common';
+import { ICONS } from '../../../../constants';
 import {
-  Wrapper
+  Wrapper,
+  roundButtonCS
 } from './styles';
 
 const RightSideView = memo((props) => {
   const { isShow, setIsShow } = props;
   return (
-    <>
-      <RoundButton handleClick={setIsShow} />
-      <Wrapper
-        isShow={isShow}
-        setIsShow={setIsShow}
-      >
-        RightSideView
-      </Wrapper>
-    </>
+    <Wrapper
+      isShow={isShow}
+      setIsShow={setIsShow}
+    >
+      <RoundButton
+        handleClick={setIsShow}
+        customStyles={roundButtonCS}
+        icon={ isShow ? ICONS.CROSS : ICONS.MENU }
+      />
+      RightSideView
+    </Wrapper>
   )
 })
 

@@ -13,3 +13,12 @@ export const Wrapper = styled.div`
   background-color: #fff;
 `;
 
+export const roundButtonCS = {
+  button: {
+    right: 305,
+    top: 10,
+    height: 40,
+    width: 40,
+  },
+}
+

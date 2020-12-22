@@ -16,4 +16,5 @@ export const Button = styled.button`
   outline: none;
   cursor: crosshair;
   box-sizing: border-box;
+  ${(props) => props.customStyles}
 `;
