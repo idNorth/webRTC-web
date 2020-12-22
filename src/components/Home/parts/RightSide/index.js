@@ -3,7 +3,7 @@ import React, { useState, memo } from 'react';
 import RightSideView from './view';
 
 const RightSide = memo(() => {
-  const [isShow, setIsShow] = useState(true);
+  const [isShow, setIsShow] = useState(false);
 
   return (
     <RightSideView

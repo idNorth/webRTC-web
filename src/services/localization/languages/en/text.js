@@ -1,4 +1,5 @@
 export default {
   login: 'Login',
-  name: 'Name'
+  name: 'Name',
+  searchPlaceholder: 'Search',
 }

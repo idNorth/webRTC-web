@@ -1,4 +1,5 @@
 export default {
   login: 'Войти',
-  name: 'Имя'
+  name: 'Имя',
+  searchPlaceholder: 'Поиск',
 }

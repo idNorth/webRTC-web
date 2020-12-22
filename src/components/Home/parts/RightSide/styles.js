@@ -11,6 +11,10 @@ export const Wrapper = styled.div`
   box-sizing: border-box;
   transition: right .7s ease;
   background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
 `;
 
 export const roundButtonCS = {

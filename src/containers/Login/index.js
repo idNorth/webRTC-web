@@ -3,9 +3,9 @@ import React, { memo } from 'react';
 import LoginView from '../../components/Login';
 
 const Login = memo((props) => {
-
+  const { history } = props;
   const onSubmit = (form) => {
-    this.props.history.push('/home')
+    history.push('/home')
   }
 
   return (
