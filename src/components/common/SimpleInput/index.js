@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { memo } from 'react';
 import { injectIntl } from 'react-intl';
 
 import {
@@ -8,41 +8,34 @@ import {
   Warning,
 } from './styles';
 
-class SimpleInput extends Component {
-  renderError = () => {
-    const {
-      intl: { formatMessage },
-      meta: { touched, error, warning },
-      customStyles,
-    } = this.props;
+const SimpleInput = memo((props) => {
+  const {
+    intl: { formatMessage },
+    meta: { touched, error, warning },
+    customStyles,
+    input,
+    placeholderId,
+    ...res
+  } = props;
 
+  const renderError = () => {
     if (!touched) return null
     if (error) return <Error customStyles={customStyles.error}>{ formatMessage({ id: error }) }</Error>
     if (warning) return <Warning customStyles={customStyles.warning}>{ formatMessage({ id: warning }) }</Warning>
   }
 
-  render() {
-    const {
-      input,
-      customStyles,
-      intl: { formatMessage },
-      placeholderId,
-      ...res
-    } = this.props;
-
-    return (
-      <Wrapper customStyles={customStyles.wrapper}>
-        <Input
-          customStyles={customStyles.input}
-          placeholder={formatMessage({ id: placeholderId })}
-          {...input}
-          {...res}
-        />
-        { this.renderError() }
-      </Wrapper>
-    )
-  }
-}
+  return (
+    <Wrapper customStyles={customStyles.wrapper}>
+      <Input
+        customStyles={customStyles.input}
+        placeholder={formatMessage({ id: placeholderId })}
+        {...input}
+        {...res}
+      />
+      { renderError() }
+    </Wrapper>
+  )
+})
 
 SimpleInput.defaultProps = {
   customStyles: {

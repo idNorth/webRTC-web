@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
+import React, { memo } from 'react';
 import { connect } from 'react-redux';
 import { IntlProvider } from 'react-intl';
-// import 'intl';
-// import 'intl/locale-data/jsonp/en';
-// import 'intl/locale-data/jsonp/ru';
 
 import { ru, en } from './languages';
 import { LOCALIZATIONS } from '../../constants/localization';
 
-class LocaleProvider extends Component {
-  getLocalization = () => {
-    const { localization } = this.props;
+const LocaleProvider = memo((props) => {
+  const { localization, children } = props;
+
+  const getLocalization = () => {
     switch (localization) {
       case LOCALIZATIONS.RU.short: return ru;
       case LOCALIZATIONS.EN.short:
@@ -18,19 +16,15 @@ class LocaleProvider extends Component {
     }
   };
 
-  render() {
-    const { localization } = this.props;
-    console.log(this.props);
-    return (
-      <IntlProvider
-        locale={LOCALIZATIONS[localization].short}
-        messages={this.getLocalization()}
-      >
-        {this.props.children}
-      </IntlProvider>
-    );
-  }
-}
+  return (
+    <IntlProvider
+      locale={LOCALIZATIONS[localization].short}
+      messages={getLocalization()}
+    >
+      {children}
+    </IntlProvider>
+  );
+})
 
 const mapStateToProps = (state) => ({
   localization: state.app.localization,

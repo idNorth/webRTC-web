@@ -1,14 +1,11 @@
-import React, { Component } from 'react';
+import React, { memo } from 'react';
 
 import HomeView from '../../components/Home';
 
-class Home extends Component {
-  render() {
-    console.log(123);
-    return (
-      <HomeView />
-    )
-  }
-}
+const Home = memo((props) => {
+  return (
+    <HomeView />
+  )
+})
 
 export default Home;

@@ -1,25 +1,18 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { memo } from 'react';
 
 import LoginView from '../../components/Login';
 
-class Login extends Component {
+const Login = memo((props) => {
 
-  onSubmit = (form) => {
+  const onSubmit = (form) => {
     this.props.history.push('/home')
   }
 
-  render() {
-    return (
-      <LoginView
-        onSubmit={this.onSubmit}
-      />
-    )
-  }
-}
-
-const mapStateToProps = (state) => ({
-  state
+  return (
+    <LoginView
+      onSubmit={onSubmit}
+    />
+  )
 })
 
-export default connect(mapStateToProps)(Login);
+export default Login;

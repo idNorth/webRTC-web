@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
+import React, { memo } from 'react';
 
-class Layout extends Component {
-  render() {
-    return (
-      <>
-        {this.props.children}
-      </>
-    )
-  }
-}
+const Layout = memo((props) => {
+  const { children } = props;
+  return (
+    <>
+      {children}
+    </>
+  )
+})
 
 export default Layout;

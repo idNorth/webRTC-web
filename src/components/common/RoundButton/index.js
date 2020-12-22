@@ -1,17 +1,15 @@
-import React, { Component } from 'react';
+import React, { memo } from 'react';
 
 import { Button } from './styles';
 import MenuIcon from '@material-ui/icons/Menu';
 
-class RoundButton extends Component {
-  render() {
-    const { icon } = this.props;
-    return (
-      <Button>
-        <MenuIcon />
-      </Button>
-    )
-  }
-}
+const RoundButton = memo((props) => {
+  const { handleClick } = props;
+  return (
+    <Button onClick={handleClick}>
+      <MenuIcon />
+    </Button>
+  )
+});
 
 export default RoundButton;

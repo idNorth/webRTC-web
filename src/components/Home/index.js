@@ -1,19 +1,15 @@
-import React, { Component } from 'react';
+import React, { memo } from 'react';
 
-import Sidebar from './parts/Sidebar';
-import { RoundButton } from '../common';
+import RightSide from './parts/RightSide';
 import { Wrapper } from './styles';
 
-class HomeView extends Component {
-  render() {
-    return (
-      <Wrapper>
-        Hello
-        <RoundButton />
-        <Sidebar />
-      </Wrapper>
-    )
-  }
-}
+const HomeView = memo(() => {
+  return (
+    <Wrapper>
+      Hello
+      <RightSide />
+    </Wrapper>
+  )
+});
 
 export default HomeView;
