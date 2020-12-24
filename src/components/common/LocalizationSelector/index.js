@@ -4,7 +4,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import TranslateIcon from '@material-ui/icons/Translate';
 
-import { setLocalization } from '../../../redux/reduces/app/action';
+import { setLocalization } from '../../../redux/reduces/app/actions';
 import { LOCALIZATIONS } from '../../../constants/localization';
 
 import { Wrapper } from './styles';
