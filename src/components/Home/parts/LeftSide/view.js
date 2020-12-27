@@ -7,7 +7,7 @@ import {
   roundButtonCS
 } from './styles';
 
-const RightSideView = memo((props) => {
+const LeftSideView = memo((props) => {
   const { isShow, setIsShow } = props;
   return (
     <Wrapper
@@ -17,11 +17,11 @@ const RightSideView = memo((props) => {
       <RoundButton
         handleClick={setIsShow}
         customStyles={roundButtonCS}
-        icon={ isShow ? ICONS.CROSS : ICONS.SEARCH }
+        icon={ isShow ? ICONS.CROSS : ICONS.MENU }
       />
       <SearchInput placeholderId={'searchPlaceholder'}/>
     </Wrapper>
   )
 })
 
-export default RightSideView
+export default LeftSideView;

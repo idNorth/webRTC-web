@@ -1,6 +1,7 @@
 export const ICONS = {
   MENU: 'MENU',
   CROSS: 'CROSS',
+  SEARCH: 'SEARCH',
 }
 
 export const NOTIFICATION_TYPES = {
