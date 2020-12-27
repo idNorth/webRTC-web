@@ -2,6 +2,7 @@ import React, { memo, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { ROUTERS } from '../../constants/routers'
+import { setUserToken } from '../../services/api'
 
 const Layout = memo((props) => {
   const { children } = props;
@@ -10,7 +11,10 @@ const Layout = memo((props) => {
 
   useEffect(() => {
     const token = localStorage.getItem('UserToken');
-    if (token) history.push(ROUTERS.HOME);
+    if (token) {
+      setUserToken(token);
+      history.push(ROUTERS.HOME);
+    }
     else history.push(ROUTERS.LOGIN);
   }, [])
 

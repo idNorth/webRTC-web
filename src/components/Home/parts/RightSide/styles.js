@@ -17,6 +17,12 @@ export const Wrapper = styled.div`
   padding: 10px;
 `;
 
+export const OptionsWrapper = styled.div`
+  display: flex;
+  margin-top: 5px;
+  width: 100%;
+`;
+
 export const roundButtonCS = {
   button: {
     right: 305,
@@ -24,5 +30,9 @@ export const roundButtonCS = {
     height: 40,
     width: 40,
   },
+}
+
+export const styledButtonCS = {
+  width: '50%',
 }
 

@@ -1,5 +1,7 @@
 export default {
   login: 'Войти',
   name: 'Имя',
-  searchPlaceholder: 'Поиск',
+  search: 'Поиск',
+  chats: 'Чаты',
+  users: 'Пользователи',
 }

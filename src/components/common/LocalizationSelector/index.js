@@ -44,8 +44,8 @@ const mapStateToProps = (state) => ({
   localization: state.app.localization,
 })
 
-const DispatchToProps = {
+const mapDispatchToProps = {
   setLocalization
 }
 
-export default connect(mapStateToProps, DispatchToProps)(LocalizationSelector);
+export default connect(mapStateToProps, mapDispatchToProps)(LocalizationSelector);

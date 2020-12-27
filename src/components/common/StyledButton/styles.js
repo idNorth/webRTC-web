@@ -13,6 +13,8 @@ export const Button = styled.button`
   box-sizing: border-box;
   overflow: hidden;
   transition: color .7s ease;
+  z-index: 2;
+  ${(props) => props.customStyles};
 
   &:after {
     content: '';
@@ -29,7 +31,7 @@ export const Button = styled.button`
   &:hover {
     color: #fff;
     &:after {
-      bottom: 0%;
+      bottom: 0;
     }
   }
 `;

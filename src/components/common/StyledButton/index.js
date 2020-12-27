@@ -6,14 +6,14 @@ import { Button } from './styles';
 const StyledButton = memo((props) => {
   const {
     text,
-    intl: { formatMessage },
+    intl: { formatMessage, messages },
     id,
     ...res
   } = props;
 
   return (
     <Button {...res}>
-      { formatMessage({ id }) }
+      { !!messages[id] ? formatMessage({ id }) : 'StyledButton' }
     </Button>
   )
 })

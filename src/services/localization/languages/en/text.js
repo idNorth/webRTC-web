@@ -1,5 +1,7 @@
 export default {
   login: 'Login',
   name: 'Name',
-  searchPlaceholder: 'Search',
+  search: 'Search',
+  chats: 'Chats',
+  users: 'Users',
 }

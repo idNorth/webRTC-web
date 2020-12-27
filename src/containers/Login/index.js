@@ -32,8 +32,8 @@ const Login = memo((props) => {
   )
 })
 
-const dispatchToProps = {
+const mapDispatchToProps = {
   loginAction
 }
 
-export default connect(null, dispatchToProps)(Login);
+export default connect(null, mapDispatchToProps)(Login);
