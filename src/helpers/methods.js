@@ -19,3 +19,8 @@ export const getDiff = (object, base) => {
 
   return changes(object, base);
 };
+
+export const parseError = (err) => {
+  return err.response.data.message
+  // if (err.message) return err.message;
+}
