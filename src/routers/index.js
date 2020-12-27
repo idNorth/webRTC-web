@@ -13,13 +13,13 @@ import { ROUTERS } from '../constants/routers';
 const Routers = memo(() => {
   return (
     <Notification>
-      <Layout>
-        <Switch>
-          <Route exact path={ROUTERS.LOGIN} component={Login} />
-          <Route exact path={ROUTERS.HOME} component={Home} />
-          <Route path={ROUTERS.NOT_FOUND} component={Login} />
-        </Switch>
-      </Layout>
+        <Layout>
+          <Switch>
+            <Route exact path={ROUTERS.LOGIN} component={Login} />
+            <Route exact path={ROUTERS.HOME} component={Home} />
+            <Route path={ROUTERS.NOT_FOUND} component={Login} />
+          </Switch>
+        </Layout>
     </Notification>
   )
 })

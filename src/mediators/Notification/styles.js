@@ -6,7 +6,7 @@ const commonStyles = css`
   left: 50%;
   max-width: 300px;
   padding: 15px;
-  z-index: 999;
+  z-index: 998;
   user-select: none;
   cursor: crosshair;
   opacity: 1;
