@@ -1,8 +1,8 @@
 import React, { useState, memo } from 'react';
 
-import RightSideView from './view';
+import RightSideView from '../../components/RightSideBar';
 
-const RightSide = memo(() => {
+const RightSideBar = memo(() => {
   const [isShow, setIsShow] = useState(false);
 
   return (
@@ -13,4 +13,4 @@ const RightSide = memo(() => {
   )
 })
 
-export default RightSide;
+export default RightSideBar;

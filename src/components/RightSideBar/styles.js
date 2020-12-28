@@ -23,15 +23,6 @@ export const OptionsWrapper = styled.div`
   width: 100%;
 `;
 
-export const roundButtonCS = {
-  button: {
-    right: 305,
-    top: 10,
-    height: 40,
-    width: 40,
-  },
-}
-
 export const styledButtonCS = {
   width: '50%',
 }

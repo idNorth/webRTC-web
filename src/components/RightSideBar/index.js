@@ -1,14 +1,11 @@
 import React, { memo } from 'react';
 
 import {
-  RoundButton,
   SearchInput,
   StyledButton,
-} from '../../../common';
-import { ICONS } from '../../../../constants';
+} from '../../components/common';
 import {
   Wrapper,
-  roundButtonCS,
   OptionsWrapper,
   styledButtonCS,
 } from './styles';
@@ -20,11 +17,6 @@ const RightSideView = memo((props) => {
       isShow={isShow}
       setIsShow={setIsShow}
     >
-      <RoundButton
-        handleClick={setIsShow}
-        customStyles={roundButtonCS}
-        icon={ isShow ? ICONS.CROSS : ICONS.SEARCH }
-      />
       <SearchInput placeholderId={'search'}/>
       <OptionsWrapper>
         <StyledButton

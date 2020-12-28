@@ -4,23 +4,18 @@ import {
   Home,
   Login,
 } from '../containers';
-import {
-  Layout,
-  Notification,
-} from '../mediators'
+import { Layout } from '../mediators'
 import { ROUTERS } from '../constants/routers';
 
 const Routers = memo(() => {
   return (
-    <Notification>
-        <Layout>
-          <Switch>
-            <Route exact path={ROUTERS.LOGIN} component={Login} />
-            <Route exact path={ROUTERS.HOME} component={Home} />
-            <Route path={ROUTERS.NOT_FOUND} component={Login} />
-          </Switch>
-        </Layout>
-    </Notification>
+    <Switch>
+      <Route exact path={ROUTERS.LOGIN} component={Login} />
+      <Layout>
+        <Route exact path={ROUTERS.HOME} component={Home} />
+      </Layout>
+      <Route path={ROUTERS.NOT_FOUND} component={Login} />
+    </Switch>
   )
 })
 

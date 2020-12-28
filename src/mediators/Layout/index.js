@@ -1,8 +1,11 @@
 import React, { memo, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { ROUTERS } from '../../constants/routers'
-import { setUserToken } from '../../services/api'
+import { ROUTERS } from '../../constants/routers';
+import Header from '../../components/Header';
+import { Wrapper } from './styles';
+import { setUserToken } from '../../services/api';
+import { LeftSideBar } from '../../containers';
 
 const Layout = memo((props) => {
   const { children } = props;
@@ -26,9 +29,12 @@ const Layout = memo((props) => {
   }, [history.location.pathname])
 
   return (
-    <>
-      {children}
-    </>
+    <LeftSideBar>
+      <Header />
+      <Wrapper>
+        {children}
+      </Wrapper>
+    </LeftSideBar>
   )
 })
 

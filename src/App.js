@@ -8,6 +8,7 @@ import Routers from './routers';
 import LocaleProvider from './services/localization';
 import { GlobalStyle } from './styles';
 import { store, persistor } from './redux';
+import { Notification } from '../src/mediators';
 
 const history = createBrowserHistory();
 
@@ -17,7 +18,9 @@ const App = () => (
       <Router history={history}>
         <GlobalStyle />
         <LocaleProvider>
-          <Routers />
+          <Notification>
+            <Routers />
+          </Notification>
         </LocaleProvider>
       </Router>
     </PersistGate>

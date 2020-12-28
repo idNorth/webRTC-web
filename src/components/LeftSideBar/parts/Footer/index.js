@@ -6,12 +6,12 @@ import {
   Wrapper,
   roundButtonCS,
 } from './styles';
-import { ICONS, NOTIFICATION_TYPES}  from '../../../../../../constants';
-import { ROUTERS } from '../../../../../../constants/routers';
-import { RoundButton } from '../../../../../common';
-import { NotificationContext } from '../../../../../../helpers/context';
-import { logoutAction } from '../../../../../../redux/reduces/auth/actions';
-import { parseError } from '../../../../../../helpers/methods';
+import { ICONS, NOTIFICATION_TYPES}  from '../../../../constants';
+import { ROUTERS } from '../../../../constants/routers';
+import { RoundButton } from '../../../../components/common';
+import { NotificationContext } from '../../../../helpers/context';
+import { logoutAction } from '../../../../redux/reduces/auth/actions';
+import { parseError } from '../../../../helpers/methods';
 
 const Footer = memo((props) => {
   const { logoutAction } = props;
