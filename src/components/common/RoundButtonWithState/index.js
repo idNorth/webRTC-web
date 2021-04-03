@@ -10,13 +10,6 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 const RoundButton = memo((props) => {
   const { handleClick, customStyles, icon } = props;
 
-  const [isShow, setIsShow] = useState(false);
-
-  useEffect(() => {
-    handleClick(isShow)
-    return () => handleClick(false)
-  }, [isShow])
-
   const renderIcon = () => {
     switch (icon) {
       case ICONS.MENU: return <MenuIcon />
@@ -28,7 +21,7 @@ const RoundButton = memo((props) => {
 
   return (
     <Button
-      onClick={() => setIsShow(!isShow)}
+      onClick={handleClick}
       customStyles={customStyles.button}
     >
       { renderIcon() }

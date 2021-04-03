@@ -18,3 +18,7 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   padding: 10px;
 `;
+
+export const TabsWrapper = styled.div`
+  width: 100%;
+`;

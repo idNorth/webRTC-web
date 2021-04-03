@@ -1,7 +1,7 @@
 import React, { memo, useContext } from 'react';
 
 import { Wrapper, roundButtonCS } from './styles';
-import { HEADER_ITEMS, ACTION_SIDE } from '../../constants/header';
+import { HEADER_ITEMS } from '../../constants/header';
 import { LeftSideBarContext } from '../../helpers/context';
 import { RoundButtonWithState } from '../common';
 
@@ -14,7 +14,7 @@ const Header = memo((props) => {
         HEADER_ITEMS.map((item, index) => (
           <RoundButtonWithState
             key={index}
-            handleClick={item.side === ACTION_SIDE.LEFT ? LeftSideBar.showLeftSideBar : () => {}}
+            handleClick={() => item.onClick(LeftSideBar)}
             customStyles={roundButtonCS}
             icon={ item.icon }
           />

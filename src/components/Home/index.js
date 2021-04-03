@@ -4,9 +4,7 @@ import { Wrapper } from './styles';
 
 const HomeView = memo(() => {
   return (
-    <Wrapper>
-      Hello
-    </Wrapper>
+    <Wrapper />
   )
 });
 

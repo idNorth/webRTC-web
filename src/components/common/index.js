@@ -4,6 +4,7 @@ import LocalizationSelector from './LocalizationSelector';
 import RoundButton from './RoundButton';
 import RoundButtonWithState from './RoundButtonWithState';
 import SearchInput from './SearchInput';
+import Tab from './Tab';
 
 export {
   SimpleInput,
@@ -12,4 +13,5 @@ export {
   RoundButton,
   RoundButtonWithState,
   SearchInput,
+  Tab,
 }

@@ -6,10 +6,11 @@ import { LeftSideBarProvider } from '../../helpers/context';
 const LeftSideBar = memo((props) => {
   const { children } = props;
 
-  const [isShow, setIsShow] = useState(false);
+  // TODO default false
+  const [isShow, setIsShow] = useState(true);
 
   return (
-    <LeftSideBarProvider value={{ showLeftSideBar: setIsShow }}>
+    <LeftSideBarProvider value={{ showLeftSideBar: () => setIsShow((prev) => !prev) }}>
       <LeftSideBarView
         isShow={isShow}
       />

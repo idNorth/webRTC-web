@@ -1,20 +1,15 @@
 import { ICONS } from './';
 
 export const HEADER_HEIGHT = '40px';
-export const ACTION_SIDE = {
-  LEFT: 'LEFT',
+export const ACTION_TYPE = {
+  OPEN_CLOSE_LEFT_SIDE: 'OPEN_CLOSE_LEFT_SIDE',
   RIGHT: 'RIGHT',
 };
 
 export const HEADER_ITEMS = [
   {
     icon: ICONS.MENU,
-    type: ICONS.MENU,
-    side: ACTION_SIDE.LEFT,
-  },
-  {
-    icon: ICONS.SEARCH,
-    type: ICONS.SEARCH,
-    side: ACTION_SIDE.RIGHT,
+    type: ACTION_TYPE.OPEN_CLOSE_LEFT_SIDE,
+    onClick: (LeftSideContext) => LeftSideContext.showLeftSideBar(),
   },
 ];

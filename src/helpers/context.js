@@ -8,3 +8,6 @@ export const LeftSideBarProvider = LeftSideBarContext.Provider;
 
 export const RightSideBarContext = React.createContext();
 export const RightSideBarProvider = RightSideBarContext.Provider;
+
+export const FullScreenLoaderContext = React.createContext();
+export const FullScreenLoaderProvider = FullScreenLoaderContext.Provider;
