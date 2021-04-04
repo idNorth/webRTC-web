@@ -7,8 +7,9 @@ import {
   FullScreenLoaderContext,
   NotificationContext,
 } from '../../helpers/context';
-import {NOTIFICATION_TYPES} from "../../constants";
-import {parseError} from "../../helpers/methods";
+import { NOTIFICATION_TYPES } from '../../constants';
+import { parseError } from '../../helpers/methods';
+import { emitLogin, connectSocket, addListenerLogin } from '../../services/socket';
 
 const CheckAuth = memo((props) => {
   const { setFullScreenLoaderConf } = useContext(FullScreenLoaderContext);
@@ -29,6 +30,9 @@ const CheckAuth = memo((props) => {
       if (token) {
         await setUserToken(token);
         nextRoute = ROUTERS.HOME
+        await connectSocket();
+        emitLogin();
+        addListenerLogin(console.log);
       }
 
       history.push(nextRoute);
