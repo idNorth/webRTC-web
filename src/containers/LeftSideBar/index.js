@@ -8,11 +8,14 @@ const LeftSideBar = memo((props) => {
 
   // TODO default false
   const [isShow, setIsShow] = useState(true);
+  const [currentTab, setCurrentTab] = useState(0)
 
   return (
     <LeftSideBarProvider value={{ showLeftSideBar: () => setIsShow((prev) => !prev) }}>
       <LeftSideBarView
         isShow={isShow}
+        currentTab={currentTab}
+        setCurrentTab={setCurrentTab}
       />
       { children }
     </LeftSideBarProvider>

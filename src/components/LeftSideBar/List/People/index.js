@@ -1,10 +1,11 @@
 import React, { memo, useContext, useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import Loader from "react-loader-spinner";
 
 import {
   getUsersAction,
 } from '../../../../redux/reduces/user/actions';
-import { Wrapper, UserTab } from './styles';
+import { Wrapper, UserTab, LoaderWrapper } from './styles';
 import { Tab } from '../../../common';
 import { NotificationContext } from '../../../../helpers/context';
 import { NOTIFICATION_TYPES } from '../../../../constants';
@@ -18,8 +19,7 @@ const People = memo((props) => {
     getUsersAction,
   } = props;
 
-  const [isOpen, setIsOpen] = useState(false);
-
+  let userInterval = null;
   const { setNotificationData } = useContext(NotificationContext);
 
   const fetchData = async () => {
@@ -36,33 +36,33 @@ const People = memo((props) => {
 
   useEffect(() => {
     fetchData();
+    userInterval = setInterval(fetchData, 10000)
+    return () => {
+      clearInterval(userInterval)
+    }
   }, []);
+
+  if (isLoadingGetUsers) return (
+    <LoaderWrapper>
+      <Loader
+        type="TailSpin"
+        color="#cec"
+        height={35}
+        width={35}
+      />
+    </LoaderWrapper>
+
+  )
 
   return (
     <Wrapper>
-      <Tab
-        labelId="people"
-        altText="People"
-        total={total}
-        isLoading={isLoadingGetUsers}
-        isOpen={isOpen}
-        onClick={() => setIsOpen((prev) => !prev)}
-      />
       {
-        isOpen && (
-          <div>
-            {
-              users.map((user) => (
-                <UserTab
-                  key={user.key}
-                >
-                  <div>name: {user.username}</div>
-                  <div>key: {user.key}</div>
-                </UserTab>
-              ))
-            }
-          </div>
-        )
+        users.map((user) => (
+          <UserTab key={user.key}>
+            <div>name: {user.username}</div>
+            <div>key: {user.key}</div>
+          </UserTab>
+        ))
       }
     </Wrapper>
   )

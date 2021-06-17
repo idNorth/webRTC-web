@@ -21,4 +21,21 @@ export const Wrapper = styled.div`
 
 export const TabsWrapper = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction: row;
+`;
+
+export const Tab = styled.div`
+  border-bottom: 1px solid black;
+  height: 50px;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  user-select: none;
+  ${(props) => props.isActive && `
+    color: #fff;
+    background-color: #000;
+  `}
 `;
