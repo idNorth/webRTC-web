@@ -1,19 +1,16 @@
-import React, { memo } from 'react';
+import React, { memo, Fragment } from 'react';
 
 import Header from '../../components/Header';
 import { Wrapper } from './styles';
-import { LeftSideBar } from '../../containers';
 
-const Layout = memo((props) => {
-  const { children } = props;
-
+const Layout = memo(({ children }) => {
   return (
-    <LeftSideBar>
+    <Fragment>
       <Header />
       <Wrapper>
         {children}
       </Wrapper>
-    </LeftSideBar>
+    </Fragment>
   )
 })
 

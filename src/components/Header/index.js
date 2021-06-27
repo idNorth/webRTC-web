@@ -1,27 +1,40 @@
 import React, { memo, useContext } from 'react';
+import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
-import { Wrapper, roundButtonCS } from './styles';
-import { HEADER_ITEMS } from '../../constants/header';
-import { LeftSideBarContext } from '../../helpers/context';
-import { RoundButtonWithState } from '../common';
+import { NOTIFICATION_TYPES}  from '../../constants';
+import { ROUTERS } from '../../constants/routers';
+import { NotificationContext } from '../../helpers/context';
+import { logoutAction } from '../../redux/reduces/auth/actions';
+import { parseError } from '../../helpers/methods';
+import { Wrapper } from './styles';
 
-const Header = memo((props) => {
-  const LeftSideBar = useContext(LeftSideBarContext);
+const Header = memo(({ logoutAction }) => {
+  const history = useHistory();
+  const Notification = useContext(NotificationContext);
+
+  const handleLogout = async () => {
+    try {
+      await logoutAction();
+      history.push(ROUTERS.LOGIN);
+    } catch (err) {
+      Notification.setNotificationData({
+        type: NOTIFICATION_TYPES.ERROR,
+        msg: parseError(err),
+      })
+    }
+  };
 
   return (
     <Wrapper>
-      {
-        HEADER_ITEMS.map((item, index) => (
-          <RoundButtonWithState
-            key={index}
-            handleClick={() => item.onClick(LeftSideBar)}
-            customStyles={roundButtonCS}
-            icon={ item.icon }
-          />
-        ))
-      }
+      <span>WER RTC</span>
+      <div onClick={handleLogout}>Logout</div>
     </Wrapper>
   )
 })
 
-export default Header;
+const mapDispatchToProps = {
+  logoutAction,
+}
+
+export default connect(null, mapDispatchToProps)(Header);

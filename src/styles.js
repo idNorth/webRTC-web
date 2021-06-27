@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle`
     font-family: Roboto;
     height: 100%;
     width: 100%;
-    background-color: #c4d0d9;
+    background-color: #47597E;
   }
   #root {
     height: inherit;
